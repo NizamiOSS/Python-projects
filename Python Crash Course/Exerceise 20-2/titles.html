@@ -1,0 +1,19 @@
+{% extends "blogs/base.html" %}
+
+{% block page_header %}
+<h1>Titles</h1>
+{% endblock page_header %}
+{% block content %}
+
+<ul>
+{% for title in titles %}
+<li><h3>
+<a href="{% url 'blogs:title' title.id %}">{{ title }}</a>
+</h3></li> 
+{% empty %}
+<li>No titles have been added yet.</h3></li>
+{% endfor %}
+</ul>
+
+<h3><a href="{% url 'blogs:new_title' %}">Add a new title</a></h3>
+{% endblock content %}
